@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-900: #111827;
+  --primary-950: #0F172A;
+  --accent-500: #f97316;
+  --accent-950: #FF6B35;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-sans text-gray-800 antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-semibold text-primary-900;
+  line-height: 1.2;
+}
+
+p {
+  @apply leading-relaxed;
+  line-height: 1.5;
+}
+
+.container {
+  @apply px-4 mx-auto;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded transition-all duration-300 font-medium;
+  }
+  
+  .btn-primary {
+    @apply bg-accent-950 text-white hover:bg-accent-600 focus:ring-2 focus:ring-accent-500 focus:outline-none;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300;
+  }
+  
+  .nav-link {
+    @apply relative px-3 py-2 text-gray-700 transition-colors duration-300 hover:text-accent-950;
+  }
+  
+  .nav-link-active {
+    @apply text-accent-950 font-medium;
+  }
+}
+
+/* Custom animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

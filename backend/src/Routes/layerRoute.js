@@ -1,0 +1,10 @@
+let express=require("express")
+const app=express.Router()
+const {Login,Register,Search,SearchAll}=require("../Controllers/layerController")
+const { userMiddleware } = require("../Middleware/userMiddleware")
+const upload = require("../Multer/multer")
+app.post("/login",Login)
+app.post("/register",upload.single('profilePiture'),Register)
+app.post("/search",userMiddleware,Search)
+app.get("/search/all",SearchAll)
+module.exports=app
